@@ -1,207 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Shannalei Ogriman | Portfolio</title>
-<meta name="description" content="Portfolio of Shannalei Ogriman, a 4th-year BS Computer Engineering student building AI-assisted, cross-platform and embedded projects.">
-<meta property="og:title" content="Shannalei Ogriman | Computer Engineering Portfolio">
-<meta property="og:description" content="4th-year Computer Engineering student. Projects: Retrievo, DialyCare, GovAssist PH, CyberGuard.">
-<meta name="theme-color" content="#0e4a3c">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{
-  --paper:#f3f5f2; --card:#fff; --ink:#12202b; --muted:#4d5d68; --line:#cfd8d1;
-  --mask:#0e4a3c; --mask-2:#16634f; --trace:#d4a94a; --link:#0e5a8a;
-  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
-  --body:'IBM Plex Sans','Segoe UI',system-ui,sans-serif;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{margin:0;font:400 1rem/1.65 var(--body);color:var(--ink);background:var(--paper);
-  background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:24px 24px}
-img{max-width:100%;display:block}
-a{color:var(--link)}
-:focus-visible{outline:3px solid var(--trace);outline-offset:3px}
-.wrap{width:min(1080px,100% - 2.5rem);margin-inline:auto}
-.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:.6rem 1rem;z-index:100}
-.skip:focus{left:0}
-
-/* Nav */
-.nav{position:sticky;top:0;z-index:50;background:rgba(243,245,242,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;min-height:60px}
-.brand{font:700 1.1rem var(--display);color:var(--ink);text-decoration:none}
-.nav ul{display:flex;gap:.25rem;list-style:none;margin:0;padding:0}
-.nav ul a{display:block;padding:.55rem .85rem;color:var(--muted);text-decoration:none;font-weight:500;font-size:.95rem;border-radius:6px}
-.nav ul a:hover,.nav ul a.on{color:var(--mask);background:#e4ebe6}
-.menu{display:none;min-height:44px;min-width:44px;border:1px solid var(--line);background:var(--card);border-radius:6px;font:inherit;color:var(--ink);cursor:pointer}
-
-/* Hero */
-.hero{position:relative;overflow:hidden;padding:clamp(3rem,8vw,6rem) 0 clamp(3rem,7vw,5rem)}
-.hero .wrap{display:grid;grid-template-columns:1.5fr 1fr;gap:3rem;align-items:center;position:relative}
-.hero h1{font:700 clamp(2.6rem,7vw,4.8rem)/1.02 var(--display);letter-spacing:-.02em;margin:0 0 .6rem}
-.role{font:600 1.25rem var(--display);color:var(--mask);margin:0 0 1.2rem}
-.lead{max-width:56ch;color:var(--muted);font-size:1.1rem;margin:0 0 1.8rem}
-.btns{display:flex;flex-wrap:wrap;gap:.75rem}
-.btn{display:inline-flex;align-items:center;min-height:46px;padding:.65rem 1.3rem;border-radius:6px;font-weight:600;text-decoration:none;border:2px solid var(--mask);transition:background .2s,color .2s}
-.btn.pri{background:var(--mask);color:#fff}.btn.pri:hover{background:var(--mask-2)}
-.btn.sec{color:var(--mask);background:transparent}.btn.sec:hover{background:var(--mask);color:#fff}
-.photo{justify-self:center;position:relative;width:min(300px,70vw)}
-.photo img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;border:2px solid var(--mask);background:#dfe6e1}
-.photo::before{content:"";position:absolute;inset:14px -14px -14px 14px;border:2px solid var(--trace);border-radius:10px;z-index:-1}
-.trace{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
-.trace path{fill:none;stroke:var(--trace);stroke-width:2;stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 2.4s .3s ease-out forwards}
-.trace circle{fill:var(--paper);stroke:var(--trace);stroke-width:2;opacity:0;animation:pop .3s 2.4s forwards}
-@keyframes draw{to{stroke-dashoffset:0}}@keyframes pop{to{opacity:1}}
-.hero .wrap>*{position:relative;z-index:1}
-.facts{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem;padding:0;list-style:none}
-.facts li{font-size:.9rem;color:var(--muted);border:1px solid var(--line);background:var(--card);padding:.3rem .75rem;border-radius:99px}
-
-/* Sections */
-section{padding:clamp(3rem,7vw,5rem) 0}
-h2{font:700 clamp(1.8rem,4vw,2.5rem)/1.1 var(--display);letter-spacing:-.01em;margin:0 0 .5rem}
-.sub{color:var(--muted);max-width:60ch;margin:0 0 2.2rem}
-.about{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
-.about p{margin:0 0 1rem;max-width:60ch}
-.interests{display:flex;flex-wrap:wrap;gap:.5rem;padding:0;list-style:none;margin:0;align-content:flex-start}
-.interests li{background:var(--card);border:1px solid var(--line);padding:.4rem .8rem;border-radius:6px;font-weight:500;font-size:.92rem}
-
-/* Featured project */
-.feature{background:var(--mask);color:#eef5f1;border-radius:12px;padding:clamp(1.5rem,4vw,3rem);position:relative;overflow:hidden;
-  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:32px 32px}
-.feature h3{font:700 clamp(1.8rem,4vw,2.6rem)/1.1 var(--display);margin:.2rem 0 .3rem}
-.tag{font:600 1.1rem var(--display);color:var(--trace);margin:0 0 1rem}
-.feature .full{font-size:.95rem;color:#c5d9d0;max-width:70ch;margin:0 0 1.5rem}
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
-.feature h4,.card h4{font:600 .95rem var(--body);margin:0 0 .4rem;color:var(--trace)}
-.card h4{color:var(--mask)}
-.feature p,.card p{margin:0 0 1rem}
-.feature ul{margin:0 0 1rem;padding-left:1.1rem}
-.flow{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:1.2rem 0 0;padding:0;counter-reset:s}
-.flow li{counter-increment:s;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);border-radius:6px;padding:.45rem .8rem;font-size:.92rem;font-weight:500}
-.flow li::before{content:counter(s) ".";color:var(--trace);margin-right:.4rem;font-weight:600}
-.flow li+li{position:relative}
-.badges{display:flex;flex-wrap:wrap;gap:.4rem;padding:0;margin:0 0 1rem;list-style:none}
-.badges li{font-size:.82rem;font-weight:500;padding:.2rem .6rem;border-radius:4px;border:1px solid currentColor}
-.feature .badges li{color:#dbece4}
-.card .badges li{color:var(--mask)}
-.status{display:inline-block;font-size:.85rem;font-weight:600;padding:.2rem .7rem;border-radius:99px;background:var(--trace);color:#2b2100}
-.ph{background:#fff3c9;color:#4a3a00;padding:0 .3rem;border-radius:3px}
-.feature .ph{background:#fff3c9}
-
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:1.5rem}
-.card{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--mask);border-radius:8px;padding:1.5rem;transition:border-color .2s,transform .2s}
-.card:hover{border-left-color:var(--trace);transform:translateY(-2px)}
-.card h3{font:700 1.4rem var(--display);margin:0 0 .6rem}
-.card .status{margin-bottom:.8rem}
-.card ul{margin:0 0 1rem;padding-left:1.1rem}
-.links{display:flex;gap:1rem;flex-wrap:wrap;font-weight:600}
-
-/* Skills */
-.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
-.skills div{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:1.25rem}
-.skills h3{font:700 1.1rem var(--display);margin:0 0 .8rem;color:var(--mask)}
-.skills ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.4rem}
-.skills li{background:#e9efea;padding:.2rem .6rem;border-radius:4px;font-size:.9rem;font-weight:500}
-
-/* Timeline */
-.two{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
-.tl{list-style:none;margin:0;padding:0 0 0 1.5rem;border-left:2px solid var(--mask)}
-.tl li{position:relative;padding-bottom:1.6rem}
-.tl li::before{content:"";position:absolute;left:calc(-1.5rem - 7px);top:.4rem;width:12px;height:12px;border-radius:50%;background:var(--paper);border:3px solid var(--mask)}
-.tl h3{font:700 1.15rem var(--display);margin:0}
-.tl .when{font-size:.88rem;color:var(--muted);margin:0 0 .3rem}
-.tl p{margin:0;max-width:52ch}
-
-/* Contact */
-.contact{background:var(--ink);color:#e8eef0}
-.contact h2{color:#fff}.contact .sub{color:#b9c6cc}
-.clist{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.clist a{display:block;padding:1.1rem 1.25rem;border:1px solid #3a4a55;border-radius:8px;color:#fff;text-decoration:none;font-weight:600;overflow-wrap:anywhere}
-.clist a:hover{border-color:var(--trace)}
-.clist span{display:block;font-weight:400;font-size:.85rem;color:#9fb0b8}
-footer{background:#0b141b;color:#9fb0b8;text-align:center;padding:1.25rem;font-size:.9rem}
-
-@media(max-width:860px){
-  .hero .wrap,.about,.two,.cols,.grid,.clist{grid-template-columns:1fr}
-  .skills{grid-template-columns:1fr 1fr}
-  .photo{order:-1;width:min(220px,60vw);justify-self:start}
-  .menu{display:block}
-  .nav ul{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;background:var(--paper);padding:.75rem 1.25rem 1rem;border-bottom:1px solid var(--line)}
-  .nav ul.open{display:flex}
-  .nav ul a{padding:.8rem .5rem}
-}
-@media(max-width:520px){.skills{grid-template-columns:1fr}.btn{width:100%;justify-content:center}}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .trace path{animation:none;stroke-dashoffset:0}.trace circle{animation:none;opacity:1}
-  .card{transition:none}.card:hover{transform:none}
-}
-</style>
+<meta name="description" content="Shannalei Ogriman is a 4th-year BS Computer Engineering student exploring software, mobile apps, and embedded systems. Explore projects, skills, and contact details.">
+<meta name="theme-color" content="#f6f5f0"><meta property="og:type" content="website"><meta property="og:title" content="Shannalei Ogriman | Portfolio"><meta property="og:description" content="Computer Engineering student. Software, mobile, and embedded projects."><meta property="og:image" content="https://shnnleiogrmn.github.io/Mypic.jpg"><meta property="og:url" content="https://shnnleiogrmn.github.io/">
+<link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script>
 </head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-
-<nav class="nav" aria-label="Main">
-  <div class="wrap">
-    <a class="brand" href="#top">Shannalei Ogriman</a>
-    <button class="menu" aria-expanded="false" aria-controls="links">Menu</button>
-    <ul id="links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#background">Background</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
-
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><nav class="wrap nav" aria-label="Main navigation"><a class="brand" href="#home" aria-label="Shannalei Ogriman home">SO<span>.</span></a><button class="menu" aria-expanded="false" aria-controls="nav-links">Menu <span aria-hidden="true">☰</span></button><ul id="nav-links"><li><a href="#home" aria-current="location">Home</a></li><li><a href="#about">About</a></li><li><a href="#projects">Projects</a></li><li><a href="#skills">Skills</a></li><li><a href="#contact">Contact <span aria-hidden="true">↗</span></a></li></ul></nav></header>
 <main id="main">
-<header class="hero" id="top">
-  <svg class="trace" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <path d="M0 470 H300 L340 430 H700 L740 470 H1000 L1040 430 H1200"/>
-    <path d="M0 500 H260 L300 460 H620 L660 500 H1200"/>
-    <circle cx="340" cy="430" r="6"/><circle cx="740" cy="470" r="6"/><circle cx="1040" cy="430" r="6"/>
-  </svg>
-  <div class="wrap">
-    <div>
-      <h1>Shannalei Ogriman</h1>
-      <p class="role">4th-Year Computer Engineering Student</p>
-      <p class="lead">I build software and embedded systems that solve everyday problems: a Dialysis Scheduling and Reminder app, and a NeuroComm Board.</p>
-      <div class="btns">
-        <a class="btn pri" href="#projects">View projects</a>
-        <a class="btn sec" href="#contact">Contact me</a>
-      </div>
-      <ul class="facts">
-        <li>Open to internships / OJT</li>
-        <li>Entry-level tech roles</li>
-      </ul>
-    </div>
-    <div class="photo"><img src="Mypic.jpg" alt="Portrait of Shannalei Ogriman" width="300" height="300"></div>
-  </div>
-</header>
-
-<section id="about">
-  <div class="wrap about">
-    <div>
-      <h2>About</h2>
-      <p>I'm a BS Computer Engineering student who enjoys learning through hands-on projects. I have experience working with Flutter, Firebase, ESP32, Arduino, and web development. I enjoy solving real-world problems through technology and learning new tools as needed. I also have experience in digital content and administrative support, which has helped strengthen my communication, organization, and teamwork skills.</p>
-    <ul class="interests" aria-label="Interests">
-      <li>Software development</li><li>Web development</li><li>Mobile apps</li><li>UI/UX</li>
-      <li>AI-assisted applications</li><li>Database systems</li><li>Automation</li>
-      <li>Embedded systems</li><li>Technical problem solving</li>
-    </ul>
-  </div>
-</section>
-
-<section id="projects">
-  <div class="wrap">
-    <h2>Projects</h2>
-    <p class="sub">Academic and personal projects. Status is stated on each one.</p>
-
-    <article class="feature">
+<section class="hero wrap" id="home"><div class="hero-copy"><p class="eyebrow"><span class="dot"></span> COMPUTER ENGINEERING STUDENT</p><h1>Shannalei<br>Ogriman<span>.</span></h1><p class="hero-title">Learning by building.<br>From software to embedded systems.</p><p class="lead">I'm a 4th-year BS Computer Engineering student exploring practical ways to solve everyday problems through technology.</p><div class="buttons"><a class="button primary" href="#projects">View Projects <span aria-hidden="true">↗</span></a><a class="button secondary" href="#contact">Contact Me <span aria-hidden="true">→</span></a></div><p class="availability"><span class="dot"></span> Open to internships / OJT &amp; entry-level tech roles</p></div><figure class="portrait"><img src="Mypic.jpg" alt="Portrait of Shannalei Ogriman" width="1254" height="1254" fetchpriority="high"><figcaption><span>SO / PORTFOLIO</span><span>Software · Hardware</span></figcaption></figure><div class="hero-bottom"><span>Curiosity. Practice. Progress.</span><a href="#about">Get to know me <span aria-hidden="true">↓</span></a></div></section>
+<section class="section wrap" id="about"><div class="section-heading reveal"><p class="eyebrow">01 / ABOUT ME</p><h2>A practical approach.<br>A curious mindset.</h2></div><div class="about-grid reveal"><div><p class="large-copy">I enjoy understanding how things work — and learning by making them work.</p><p>I'm a BS Computer Engineering student with experience in Flutter, Firebase, ESP32, Arduino, and web development. I enjoy solving real-world problems through hands-on projects and learning new tools along the way.</p><p>My experience in digital content and administrative support has also helped me develop communication, organization, and teamwork skills.</p></div><aside class="education"><p class="eyebrow">EDUCATION</p><h3>BS Computer Engineering</h3><p>ICCT Colleges</p><p class="muted">4th year · Expected graduation 2027</p><span class="small-label">Capstone: DialyCare</span></aside></div><div class="interests reveal"><h3>What interests me</h3><p>Software development · Web development · Mobile apps · UI/UX · AI-assisted applications · Database systems · Automation · Embedded systems · Technical problem solving</p></div></section>
+<section class="projects-section" id="projects"><div class="wrap section"><div class="section-heading reveal"><p class="eyebrow">02 / SELECTED WORK</p><h2>Projects &amp; explorations<span>.</span></h2><p class="muted">Academic and personal work, from capstone development to early concepts.</p></div><article class="feature reveal">
       <span class="status">Capstone project</span>
       <h3>DialyCare</h3>
       <p class="tag">Smarter Scheduling, Timely Care.</p>
@@ -211,7 +22,7 @@ footer{background:#0b141b;color:#9fb0b8;text-align:center;padding:1.25rem;font-s
           <h4>Problem</h4>
           <p>Dialysis patients require regular treatment schedules, but schedule and treatment updates are often communicated manually through calls and personal messages. This can require repeated communication and may cause delays or missed information between dialysis-center staff, patients, and their relatives or companions.</p>
           <h4>My role</h4>
-          <p><span class="ph">Lead Backend Developer & DevOps / Deployment Specialist</span></p>
+          <p><span class="project-role">Lead Backend Developer & DevOps / Deployment Specialist</span></p>
           <h4>Technologies</h4>
           <ul class="badges"><li>Flutter</li><li>Dart</li><li>Firebase</li><li>UniSMS</li><li>Windows desktop</li><li>Android / iOS</li></ul>
         </div>
@@ -227,18 +38,15 @@ footer{background:#0b141b;color:#9fb0b8;text-align:center;padding:1.25rem;font-s
             <li>Dashboard for authorized dialysis-center personnel</li>
             <li>User authentication and role-based access</li>
           </ul>
-          <div class="links"><a href="https://github.com/Shnnleiogrmn" target="_blank" rel="noopener" style="color:var(--trace)">GitHub profile</a></div>
+          <div class="links"><a href="https://github.com/Shnnleiogrmn" target="_blank" rel="noopener noreferrer" >GitHub profile</a></div>
         </div>
       </div>
-      <ol class="flow" aria-label="Recovery flow">
+      <ol class="flow" aria-label="DialyCare workflow">
         <li>Manage patients</li><li>Schedule sessions</li><li>Send reminders</li><li>Track session status</li><li>Notify relatives</li>
       </ol>
-    </article>
-
-    <div class="grid">
-      <article class="card">
+    </article><div class="project-list"><article class="project-row reveal">
         <span class="status">Proposed system</span>
-        <h3>Retrievo</h3>
+        <span class="project-number">02</span><h3>Retrievo</h3>
         <p>Keeps dialysis centers, patients and relatives on the same page about schedules and pickup.</p>
         <h4>Workflow</h4>
         <ul>
@@ -246,20 +54,16 @@ footer{background:#0b141b;color:#9fb0b8;text-align:center;padding:1.25rem;font-s
           <li>Patient/relative app: view schedule, get notified when a session starts and when pickup is due.</li>
         </ul>
         <ul class="badges"><li>Flutter</li><li>Dart</li><li>Firebase</li><li>FCM</li><li>Windows desktop</li><li>Android / iOS</li></ul>
-        <p>Role: <span class="ph">sakto lang</span></p>
-      </article>
-
-      <article class="card">
+        <p>Role: <span class="original-note">sakto lang</span></p>
+      </article><article class="project-row reveal">
         <span class="status">Concept</span>
-        <h3>GovAssist PH</h3>
+        <span class="project-number">03</span><h3>GovAssist PH</h3>
         <p>An AI document assistant that explains government requirements and procedures in plain Filipino or English, with source citations.</p>
         <ul class="badges"><li>React</li><li>Vite</li><li>Tailwind CSS</li><li>FastAPI</li><li>Supabase / PostgreSQL</li><li>pgvector</li></ul>
-        <p>Focus: accessibility and document retrieval. Role: <span class="ph">Madalas lutang</span></p>
-      </article>
-
-      <article class="card">
+        <p>Focus: accessibility and document retrieval. Role: <span class="original-note">Madalas lutang</span></p>
+      </article><article class="project-row reveal">
         <span class="status">Concept</span>
-        <h3>NeuroComm Board</h3>
+        <span class="project-number">04</span><h3>NeuroComm Board</h3>
         <p>A lightweight mini-SOC dashboard for defensive log analysis. Upload a log file and it flags suspicious activity.</p>
         <ul>
           <li>Failed login attempts</li>
@@ -268,124 +72,13 @@ footer{background:#0b141b;color:#9fb0b8;text-align:center;padding:1.25rem;font-s
           <li>Suspicious IP activity</li>
         </ul>
         <ul class="badges"><li>Python</li><li>Flask</li><li>SQLite</li><li>HTML / CSS</li><li>Bootstrap</li></ul>
-      </article>
-
-      <article class="card">
+      </article><article class="project-row reveal">
         <span class="status">Hardware project</span>
-        <h3>Automated Solar-Powered Subsurface Irrigation System</h3>
+        <span class="project-number">05</span><h3>Automated Solar-Powered Subsurface Irrigation System</h3>
         <p>A microcontroller-based subsurface irrigation system for agriculture, powered by solar energy.</p>
         <ul class="badges"><li>ESP32</li><li>Solar charge controller</li><li>Sensors</li></ul>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="skills">
-  <div class="wrap">
-   <h2>Skills</h2>
-<p class="sub">Tools I have used in my projects and coursework.</p>
-
-<div class="skills">
-
-  <div>
-    <h3>Development</h3>
-    <ul>
-      <li>Flutter</li>
-      <li>Dart</li>
-      <li>Python</li>
-      <li>JavaScript</li>
-      <li>HTML</li>
-      <li>CSS</li>
-    </ul>
-  </div>
-
-  <div>
-    <h3>Backend &amp; Data</h3>
-    <ul>
-      <li>Firebase</li>
-      <li>MySQL</li>
-    </ul>
-  </div>
-
-  <div>
-    <h3>Embedded &amp; Networking</h3>
-    <ul>
-      <li>ESP32</li>
-      <li>Arduino</li>
-      <li>Cisco</li>
-    </ul>
-  </div>
-
-  <div>
-    <h3>Tools &amp; Design</h3>
-    <ul>
-      <li>Git</li>
-      <li>GitHub</li>
-      <li>VS Code</li>
-      <li>UI/UX Design</li>
-      <li>Canva</li>
-      <li>Project Management</li>
-    </ul>
-  </div>
-
-</div>
-
-<section id="background">
-  <div class="wrap two">
-    <div>
-      <h2>Education</h2>
-      <ol class="tl">
-        <li>
-          <h3>BS Computer Engineering</h3>
-          <p class="when"><span class="ph">ICCT COLLEGES</span> &middot; Expected <span class="ph">2027</span></p>
-          <p>Currently in 4th year. Project: DialyCare</p>
-        </li>
-      </ol>
-    </div>
-    <div>
-      <h2>Additional skills</h2>
-      <ol class="tl">
-        <li>
-          <h3>Digital content &amp; design</h3>
-          <p>Canva graphics, menu design, social media content, AI-generated video content, basic digital marketing and page management.</p>
-        </li>
-        <li>
-          <h3>Administrative &amp; virtual assistance</h3>
-          <p>Administrative support, research, data handling, digital organization and content support.</p>
-        </li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="contact">
-  <div class="wrap">
-    <h2>Contact</h2>
-    <p class="sub">Looking for an intern or a junior teammate? Send me a message.</p>
-    <ul class="clist">
-      <li><a href="mailto:shannaleiogrmn@gmail.com"><span>Email</span>shannaleiogrmn@gmail.com</a></li>
-      <li><a href="https://github.com/Shnnleiogrmn" target="_blank" rel="noopener"><span>GitHub</span>Shnnleiogrmn</a></li>
-      <li><a href="https://www.linkedin.com/in/shannalei-ogriman-2001523b6" target="_blank" rel="noopener"><span>LinkedIn</span>Shannalei Ogriman</a></li>
-    </ul>
-  </div>
-</section>
-</main>
-
-<footer>&copy; 2026 Shannalei Ogriman</footer>
-
-<script>
-(function(){
-  var b=document.querySelector('.menu'),l=document.getElementById('links');
-  b.addEventListener('click',function(){var o=l.classList.toggle('open');b.setAttribute('aria-expanded',o)});
-  l.addEventListener('click',function(e){if(e.target.tagName==='A'){l.classList.remove('open');b.setAttribute('aria-expanded','false')}});
-  var links=[].slice.call(l.querySelectorAll('a'));
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){
-      if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})}
-    })},{rootMargin:'-45% 0px -50% 0px'});
-    links.forEach(function(a){var s=document.querySelector(a.getAttribute('href'));if(s)io.observe(s)});
-  }
-})();
-</script>
-</body>
-</html>
+      </article></div></div></section>
+<section class="section wrap" id="skills"><div class="section-heading reveal"><p class="eyebrow">03 / SKILLS</p><h2>What I work with<span>.</span></h2><p class="muted">Technologies and skills I've used in projects and coursework.</p></div><div class="skills-grid reveal"><div><span class="skill-symbol" aria-hidden="true">&lt;/&gt;</span><h3>Development</h3><ul><li>Flutter</li><li>Dart</li><li>Python</li><li>JavaScript</li><li>HTML</li><li>CSS</li><li>Git</li></ul></div><div><span class="skill-symbol" aria-hidden="true">⌁</span><h3>Backend &amp; Data</h3><ul><li>Firebase</li><li>MySQL</li></ul></div><div><span class="skill-symbol" aria-hidden="true">▧</span><h3>Embedded &amp; Networking</h3><ul><li>ESP32</li><li>Arduino</li><li>Cisco</li></ul></div><div><span class="skill-symbol" aria-hidden="true">↗</span><h3>Design &amp; Collaboration</h3><ul><li>UI/UX Design</li><li>Project Management</li></ul></div></div><div class="additional reveal"><div><h3>Digital content &amp; design</h3><p>Canva graphics, menu design, social media content, AI-generated video content, basic digital marketing, and page management.</p></div><div><h3>Administrative &amp; virtual assistance</h3><p>Administrative support, research, data handling, digital organization, and content support.</p></div></div></section>
+<section class="toolkit section wrap" id="tools"><div class="section-heading reveal"><p class="eyebrow">04 / MY TOOLKIT</p><h2>Tools I Use<span>.</span></h2><p class="muted">For building, organizing, designing, and exploring ideas.</p></div><div class="tool-groups reveal"><div class="tool-group"><h3>Productivity, design & content</h3><ul><li><span class="tool-icon" aria-hidden="true">N</span>Notion</li><li><span class="tool-icon" aria-hidden="true">◒</span>Figma</li><li><span class="tool-icon" aria-hidden="true">C</span>Canva</li><li><span class="tool-icon" aria-hidden="true">✂</span>CapCut</li></ul></div><div class="tool-group"><h3>AI tools</h3><ul><li><span class="tool-icon" aria-hidden="true">◎</span>ChatGPT</li><li><span class="tool-icon" aria-hidden="true">✦</span>Gemini</li><li><span class="tool-icon" aria-hidden="true">✳</span>Claude</li><li><span class="tool-icon" aria-hidden="true">⌘</span>GitHub Copilot</li></ul></div><div class="tool-group"><h3>Development</h3><ul><li><span class="tool-icon" aria-hidden="true">⌘</span>GitHub</li><li><span class="tool-icon" aria-hidden="true">〈〉</span>Visual Studio Code</li></ul></div></div></section>
+<section class="contact-section" id="contact"><div class="wrap section contact-grid"><div class="reveal"><p class="eyebrow">05 / GET IN TOUCH</p><h2>Let's connect<span>.</span></h2><p class="contact-lead">Have an internship opportunity, a project idea, or something to share? I'd love to hear from you.</p><a class="email-address" href="mailto:shannaleiogrmn@gmail.com">shannaleiogrmn@gmail.com ↗</a><div class="socials"><a href="https://github.com/shnnleiogrmn" target="_blank" rel="noopener noreferrer"><span class="social-icon" aria-hidden="true">⌘</span>GitHub ↗</a><a href="https://www.linkedin.com/in/shannalei-ogriman-2001523b6" target="_blank" rel="noopener noreferrer"><span class="social-icon" aria-hidden="true">in</span>LinkedIn ↗</a><a href="https://www.facebook.com/share/1FRF9p7ACZ/" target="_blank" rel="noopener noreferrer"><span class="social-icon" aria-hidden="true">f</span>Facebook ↗</a><a href="https://instagram.com/ur_syan?xtok=a2ozcmpoNHZobmY0" target="_blank" rel="noopener noreferrer"><span class="social-icon" aria-hidden="true">◎</span>Instagram ↗</a><a href="mailto:shannaleiogrmn@gmail.com"><span class="social-icon" aria-hidden="true">✉</span>Email ↗</a></div></div><form id="contact-form" class="reveal" data-endpoint="" novalidate><h3>Send a message</h3><p class="form-note" id="form-note">Direct sending is being set up. You can reach me by email.</p><div class="form-row"><div><label for="name">Name</label><input id="name" name="name" autocomplete="name" required maxlength="100" aria-describedby="name-error"><span class="field-error" id="name-error"></span></div><div><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="254" aria-describedby="email-error"><span class="field-error" id="email-error"></span></div></div><label for="message">Message</label><textarea id="message" name="message" rows="5" required maxlength="5000" aria-describedby="message-error"></textarea><span class="field-error" id="message-error"></span><button class="button primary" type="submit">Send Message <span aria-hidden="true">↗</span></button><p id="form-status" role="status" aria-live="polite"></p><noscript><p>JavaScript is required for this form. Please use the email link.</p></noscript></form></div></section>
+</main><footer class="wrap"><a class="brand" href="#home" aria-label="Back to home">SO<span>.</span></a><div><strong>Shannalei Ogriman</strong><p>Computer Engineering Student</p></div><a href="https://github.com/shnnleiogrmn" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/shannalei-ogriman-2001523b6" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><p class="copyright">© <span id="year">2026</span> Shannalei Ogriman</p></footer></body></html>
