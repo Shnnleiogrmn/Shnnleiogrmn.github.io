@@ -1,30 +1,22 @@
-﻿# Shannalei Ogriman — Portfolio
+# Shannalei Ogriman — Portfolio
 
-A lightweight, responsive portfolio built with plain HTML, CSS, and JavaScript. No build step or runtime dependencies. Compatible with GitHub Pages.
+A responsive, dependency-free portfolio built with HTML, CSS and JavaScript, compatible with GitHub Pages.
 
 ## Files
-- `index.html`: personal content, projects, navigation, and contact form.
-- `styles.css`: responsive layout, design system, and reduced-motion support.
-- `script.js`: navigation, reveals, current year, and form handling.
-- `favicon.svg`: SO monogram.
-- `Mypic.jpg`: original portrait, preserved.
+- `index.html`: existing identity, projects, education, skills and contact information.
+- `styles.css`: responsive design tokens, light/dark themes and reduced-motion support.
+- `script.js`: mobile navigation, active section, persisted theme and copy-email feedback.
+- `icon.svg`: SO favicon.
+- `Mypic.jpg`: original portrait.
 
-## Preview and deployment
-Serve this directory with any static web server (for example VS Code Live Server). For GitHub Pages, publish the repository root from your selected branch. All local asset paths are relative and case-correct.
+## Preview
+Serve the repository root with any static HTTP server. No installation or build is required. GitHub Pages can publish the root of the selected branch.
 
-## Enable contact delivery
-The form does not send messages until configured. Email links already work.
-1. Create and verify a form endpoint with a static-form provider that supports cross-origin POST requests, FormData, and JSON responses.
-2. Set `data-endpoint=""` on `#contact-form` in `index.html` to the provider's HTTPS submission URL.
-3. Confirm the provider maps `name`, `email`, and `message` fields and delivers to your inbox.
-4. Test real delivery and provider error handling after deployment.
-Use only a public submission URL. Never put secret keys or credentials in client-side code. The script reports success only after an HTTP success response; failures preserve the entered message.
+## Content notes
+All five existing projects and their statuses are retained. No project screenshots, resume, certificates or project-specific repository URLs were supplied. DialyCare links to the actual GitHub profile. Informal role placeholders were omitted; the documented DialyCare role is retained. Retrievo overlaps DialyCare, and NeuroComm Board's existing description concerns defensive log analysis; these descriptions are preserved pending clarification. No experience, metrics or credentials were invented.
 
-## Content to review
-Original projects and statuses are retained. The original NeuroComm Board description describes defensive log analysis, although its name suggests a different purpose. Retrievo's description overlaps DialyCare. Original informal role notes (`sakto lang` and `Madalas lutang`) are preserved rather than replaced with invented roles. Please clarify these before publishing if they are placeholders. No project-specific repository links or screenshots were present; DialyCare links accurately to the GitHub profile.
+## Interactions
+The theme button cycles System → Light → Dark and saves the selection when browser storage is available. The project disclosure and all links support keyboard use. Escape closes the mobile menu. Copy email uses the browser clipboard API with a visible fallback. The site works without JavaScript; on small screens the navigation uses a CSS fallback.
 
-Tool and social icons are lightweight text symbols, not third-party image dependencies.
-
-## Verification
-Local page and favicon returned HTTP 200. JavaScript syntax, fragment targets, local asset paths, unique IDs, preserved projects, external link attributes, menu toggle, validation, unconfigured form behavior, and mocked provider success/failure states passed. No live messages were sent. Browser visual and responsive QA could not run because no connected browser was available.
-
+## Checks
+Run `node --check script.js` for JavaScript syntax. This project has no configured build, lint, type-check or test runner.
