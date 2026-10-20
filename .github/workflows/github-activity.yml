@@ -1,0 +1,34 @@
+name: Refresh public GitHub activity
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 0 * * *' # 08:15 Asia/Taipei; GitHub schedules can be delayed.
+permissions:
+  contents: write
+concurrency:
+  group: portfolio-public-activity
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out the website source
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Validate activity implementation
+        run: node --test tests/github-activity.test.cjs
+      - name: Fetch and validate public activity
+        env:
+          GH_ACTIVITY_TOKEN: ${{ secrets.GH_ACTIVITY_TOKEN }}
+        run: node scripts/refresh-github.cjs "$RUNNER_TEMP/github-activity.json"
+      - name: Publish public data only
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/publish-activity.cjs "$RUNNER_TEMP/github-activity.json"

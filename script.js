@@ -86,7 +86,7 @@
         if (active) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current');
       }); });
     }, { rootMargin: '-15% 0px -65% 0px' });
-    navLinks.forEach(link => observer.observe($(link.hash)));
+    navLinks.forEach(link => { const target = $(link.hash); if (target && !document.body.dataset.home) observer.observe(target); });
     const reveal = new IntersectionObserver(entries => entries.forEach(entry => {
       if (entry.isIntersecting) { if (!reducedMotion.matches) entry.target.classList.add('section-enter'); reveal.unobserve(entry.target); }
     }), { threshold: .08 });
@@ -109,6 +109,7 @@
       playSound('select');
     }));
   }
+  if ($('.spotlight')) {
   bindCommunicationDemo($('#neurocomm'));
   const spotlight = $('.spotlight'), stage = $('.project-stage');
   const sources = ['#dialycare', '#irrigation', '#neurocomm'].map($);
@@ -123,11 +124,13 @@
     card.append(meta, heading, status, description);
     const badges = source.querySelector('.badges');
     if (badges) { const clone = badges.cloneNode(true); [...clone.children].slice(4).forEach(tag => tag.remove()); card.append(clone); }
+    const preview = source.querySelector('.project-preview');
+    if (preview) card.append(preview.cloneNode(true));
     const demo = source.querySelector('.communication-demo');
     if (demo) { const clone = demo.cloneNode(true); clone.querySelectorAll('[data-word]').forEach(button => button.setAttribute('aria-pressed', 'false')); card.append(clone); bindCommunicationDemo(clone); }
-    const action = document.createElement('a'); action.className = 'spotlight-action'; action.href = `#${source.id}`;
-    action.append('View project '); const arrow = document.createElement('span'); arrow.textContent = '↗'; arrow.setAttribute('aria-hidden', 'true'); action.append(arrow);
-    action.addEventListener('click', () => { const details = source.querySelector('details'); if (details) details.open = true; });
+    const action = document.createElement('a'); action.className = 'spotlight-action'; action.href = source.dataset.caseStudy;
+    action.append('View case study '); const arrow = document.createElement('span'); arrow.textContent = '↗'; arrow.setAttribute('aria-hidden', 'true'); action.append(arrow);
+
     card.append(action);
     card.addEventListener('click', event => { if (card.dataset.position !== 'active') { event.preventDefault(); select(index); } });
     stage.append(card); return card;
@@ -147,6 +150,7 @@
       dots[i].setAttribute('aria-pressed', String(i === selected));
     });
     $('.spotlight-status').textContent = `${selected + 1} / ${cards.length} — ${sources[selected].querySelector('h3').textContent}`;
+    stage.style.setProperty('--active-card-height', `${cards[selected].offsetHeight}px`);
     if (previous !== selected) playSound('select');
   }
   $('.previous').addEventListener('click', () => select(selected - 1));
@@ -163,20 +167,23 @@
     touchStart = null;
   }, { passive: true });
   stage.addEventListener('touchcancel', () => { touchStart = null; });
-  select(0); spotlight.hidden = false;
+  spotlight.hidden = false; select(0);
+  if ('ResizeObserver' in window) { const sizing = new ResizeObserver(() => stage.style.setProperty('--active-card-height', `${cards[selected].offsetHeight}px`)); cards.forEach(card => sizing.observe(card)); }
+  }
 
   const dialog = $('.command-dialog'), search = $('#command-search'), results = $('.command-results');
   const go = id => {
-    dialog.close(); const target = $(id); target.scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+    dialog.close(); const target = $(id); if (!target) { location.href = `${document.body.dataset.home || './'}${id}`; return; } target.scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth' });
     target.setAttribute('tabindex', '-1'); target.focus({ preventScroll: true });
   };
   const commands = [
-    ...[['Projects', '#projects'], ['About', '#about'], ['Stack', '#skills'], ['Education', '#background'], ['Contact', '#contact']].map(([name, id]) => ({ group: 'Navigation', name, run: () => go(id) })),
+    ...[['Projects', '#projects'], ['About', '#about'], ['Stack', '#skills'], ['Education', '#background'], ['GitHub activity', '#github'], ['Contact', '#contact']].map(([name, id]) => ({ group: 'Navigation', name, run: () => go(id) })),
     { group: 'Actions', name: 'Toggle theme', run: () => themeButton.click() },
     { group: 'Actions', name: 'Toggle sound', run: () => soundButton.click() },
-    { group: 'Actions', name: 'Copy email', run: () => { go('#contact'); $('.copy-email').click(); } },
-    ...[...$('.clist').querySelectorAll('a')].map(link => ({ group: 'Links', name: link.querySelector('span').textContent, run: () => { window.open(link.href, '_blank', 'noopener,noreferrer'); dialog.close(); } }))
+    { group: 'Actions', name: 'Copy email', run: () => { if (document.body.dataset.home) dialog.close(); else go('#contact'); $('.copy-email').click(); } },
+    ...[...document.querySelectorAll('.clist a')].map(link => ({ group: 'Links', name: link.querySelector('span').textContent, run: () => { window.open(link.href, '_blank', 'noopener,noreferrer'); dialog.close(); } }))
   ];
+  if (document.body.dataset.home) { for (const [name, href] of [['GitHub','https://github.com/Shnnleiogrmn'],['LinkedIn','https://www.linkedin.com/in/shannalei-ogriman-2001523b6'],['Instagram','https://instagram.com/ur_syan?xtok=a2ozcmpoNHZobmY0'],['Facebook','https://www.facebook.com/share/1FRF9p7ACZ/']]) commands.push({group:'Links',name,run:()=>{window.open(href,'_blank','noopener,noreferrer');dialog.close();}}); }
   function renderCommands() {
     results.replaceChildren(); const query = search.value.trim().toLowerCase();
     const matches = commands.filter(command => `${command.group} ${command.name}`.toLowerCase().includes(query));

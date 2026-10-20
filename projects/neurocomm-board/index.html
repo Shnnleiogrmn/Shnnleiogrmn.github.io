@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NeuroComm Board Converter | Shannalei Ogriman</title>
+<meta name="description" content="A microcontroller-based assistive communication board for people with aphasia, using accessible physical buttons and immediate pre-recorded voice output.">
+<meta property="og:title" content="NeuroComm Board Converter | Shannalei Ogriman">
+<meta property="og:description" content="A microcontroller-based assistive communication board for people with aphasia, using accessible physical buttons and immediate pre-recorded voice output.">
+<meta name="theme-color" content="#f7f7f7">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shnnleiogrmn.github.io/projects/neurocomm-board/">
+<meta property="og:image" content="https://shnnleiogrmn.github.io/Mypic.jpg">
+<meta property="og:image:alt" content="Shannalei Ogriman">
+<link rel="canonical" href="https://shnnleiogrmn.github.io/projects/neurocomm-board/">
+<link rel="icon" href="../../icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script>try{const t=localStorage.getItem('portfolio-theme');document.documentElement.dataset.theme=t==='light'||t==='dark'?t:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}catch{document.documentElement.dataset.theme=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}</script>
+<link rel="stylesheet" href="../../styles.css">
+<noscript>
+<style>@media(max-width:860px){.nav{position:relative}.nav .wrap{flex-wrap:wrap}.nav ul{position:static;display:flex;flex-wrap:wrap;width:100%;padding:0 0 12px}.menu,.theme,.utility{display:none}}</style>
+</noscript>
+</head>
+<body data-home="../../" class="case-page">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="../../#top">Shannalei Ogriman</a>
+    <div class="nav-actions">
+<button class="command-open utility" aria-label="Open command palette">⌘ K</button>
+<button class="sound utility" aria-pressed="false" aria-label="Enable interface sounds">Sound off</button>
+<button class="theme" aria-label="Color theme: system" title="Change color theme">◐ <span>System</span>
+</button>
+<button class="menu" aria-expanded="false" aria-controls="links">Menu</button>
+</div>
+    <ul id="links">
+      <li>
+<a href="../../#about">About</a>
+</li>
+      <li>
+<a href="../../#projects">Projects</a>
+</li>
+      <li>
+<a href="../../#skills">Stack</a>
+</li>
+      <li>
+<a href="../../#background">Education</a>
+</li>
+      <li>
+<a href="../../#contact">Contact</a>
+</li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+<header class="case-hero wrap">
+<a class="back-link" href="../../#projects">← All projects</a>
+<p class="section-label">Embedded Systems / Assistive Technology</p>
+<h1>NeuroComm Board Converter</h1>
+<p class="status">Embedded Systems Project / Proposal</p>
+<p class="case-lead">A microcontroller-based assistive communication board for people with aphasia, using accessible physical buttons and immediate pre-recorded voice output.</p>
+<nav class="case-toc" aria-label="Case study sections">
+<a href="#part-1">01 Overview</a>
+<a href="#part-2">02 Problem & design focus</a>
+<a href="#part-3">03 Proposed system</a>
+<a href="#part-4">04 Hardware & technologies</a>
+<a href="#part-5">05 Proposed interaction process</a>
+<a href="#part-6">06 Current status</a>
+</nav>
+</header>
+<section class="case-section wrap" id="part-1">
+<div>
+<p class="section-label">01 — CASE STUDY</p>
+<h2>Overview</h2>
+</div>
+<div class="case-prose">
+<p>NeuroComm Board is an embedded assistive communication proposal for individuals with aphasia who may find it difficult to express everyday needs verbally. Large, color-coded physical buttons represent common requests; pressing a button triggers its corresponding pre-recorded voice message.</p>
+<p>The design focuses on an alternative way to express common needs, with clear controls and immediate feedback.</p>
+</div>
+</section>
+<section class="case-section wrap" id="part-2">
+<div>
+<p class="section-label">02 — CASE STUDY</p>
+<h2>Problem & design focus</h2>
+</div>
+<div class="case-prose">
+<p>Everyday requests should be easy to express without navigating a complex interface. The proposed design focuses on clear choices, accessible physical controls, immediate feedback and a straightforward interaction.</p>
+<ul class="request-labels">
+<li>Pain</li>
+<li>Water</li>
+<li>Toilet</li>
+<li>Medicine</li>
+<li>Food</li>
+<li>Help</li>
+<li>Cold</li>
+<li>Doctor</li>
+</ul>
+</div>
+</section>
+<section class="case-section wrap" id="part-3">
+<div>
+<p class="section-label">03 — CASE STUDY</p>
+<h2>Proposed system</h2>
+</div>
+<div class="case-prose">
+<figure class="case-diagram">
+<figcaption>Proposed input, feedback and output paths</figcaption>
+<div class="signal-source">User → Button press → Arduino Uno R3</div>
+<ul class="signal-branches">
+<li>LED feedback</li>
+<li>DFPlayer Mini → Speaker</li>
+<li>EEPROM event log</li>
+</ul>
+</figure>
+</div>
+</section>
+<section class="case-section wrap" id="part-4">
+<div>
+<p class="section-label">04 — CASE STUDY</p>
+<h2>Hardware & technologies</h2>
+</div>
+<div class="case-prose">
+<dl class="hardware-list">
+<div>
+<dt>Core controller</dt>
+<dd>Arduino Uno R3</dd>
+</div>
+<div>
+<dt>Input</dt>
+<dd>8 large push buttons</dd>
+</div>
+<div>
+<dt>Visual feedback</dt>
+<dd>8 LEDs</dd>
+</div>
+<div>
+<dt>Audio</dt>
+<dd>DFPlayer Mini MP3 Module</dd>
+</div>
+<div>
+<dt>Storage</dt>
+<dd>MicroSD Card</dd>
+</div>
+<div>
+<dt>Output</dt>
+<dd>3W / 4–8Ω Speaker</dd>
+</div>
+<div>
+<dt>Logging</dt>
+<dd>Arduino built-in EEPROM</dd>
+</div>
+<div>
+<dt>Power</dt>
+<dd>USB for testing; 5V adapter or power bank for portable use</dd>
+</div>
+</dl>
+<h3>Optional enhancements</h3>
+<p>I2C LCD, buzzer, rechargeable battery module and DS3231 RTC. These are optional additions, not established core components.</p>
+</div>
+</section>
+<section class="case-section wrap" id="part-5">
+<div>
+<p class="section-label">05 — CASE STUDY</p>
+<h2>Proposed interaction process</h2>
+</div>
+<div class="case-prose">
+<ol class="case-process">
+<li>A physical button is pressed.</li>
+<li>Arduino reads the input and handles debounce.</li>
+<li>The corresponding LED activates.</li>
+<li>Arduino sends the audio command.</li>
+<li>DFPlayer Mini plays the stored voice message through the speaker.</li>
+<li>The event is recorded in EEPROM.</li>
+</ol>
+</div>
+</section>
+<section class="case-section wrap" id="part-6">
+<div>
+<p class="section-label">06 — CASE STUDY</p>
+<h2>Current status</h2>
+</div>
+<div class="case-prose">
+<p>Embedded Systems Project / Proposal. The proposed architecture brings physical input, LED feedback, pre-recorded speech and event logging into a single communication board.</p>
+</div>
+</section>
+<div class="wrap case-ending">
+<a class="btn sec" href="../../#projects">← Back to projects</a>
+<a class="btn pri" href="../../#contact">Get in touch ↗</a>
+<button class="copy-email utility" type="button">Copy email</button>
+<p id="copy-status" role="status">
+</p>
+</div>
+</main>
+<footer>
+<div class="wrap">
+<span>&copy; <span id="current-year">2026</span> Shannalei Ogriman<br>
+<span class="footer-status">
+</span>
+</span>
+<span>HTML / CSS / JavaScript. <button class="command-footer utility" aria-label="Open command palette">Commands ⌘ K</button> <a href="../../#top">Back to top ↑</a>
+</span>
+</div>
+</footer>
+
+<dialog class="command-dialog" aria-labelledby="command-title">
+<div class="command-header">
+<h2 id="command-title">Portfolio commands</h2>
+<button class="command-close utility" aria-label="Close commands">Esc</button>
+</div>
+<label for="command-search" class="sr-only">Search portfolio commands</label>
+<input id="command-search" type="search" placeholder="Search portfolio… or try /about" autocomplete="off">
+<div class="command-results">
+</div>
+<p class="command-empty" hidden>No matching commands.</p>
+<div class="command-settings">
+<label for="sound-volume">Sound volume <output for="sound-volume" id="volume-value">70%</output>
+</label>
+<input id="sound-volume" type="range" min="0" max="100" value="70" step="5">
+</div>
+<p class="command-hint">↑ ↓ to move · Enter to run · Esc to close</p>
+</dialog>
+<script src="../../script.js" defer>
+</script>
+</body>
+</html>

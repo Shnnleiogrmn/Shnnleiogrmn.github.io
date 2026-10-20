@@ -1,0 +1,5 @@
+# Keep development tests, fixtures and refresh utilities out of GitHub Pages output.
+exclude:
+  - tests
+  - scripts
+  - README.md
