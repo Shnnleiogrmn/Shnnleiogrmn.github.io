@@ -7,11 +7,11 @@
 <meta name="description" content="Portfolio of Shannalei Ogriman, a 4th-year BS Computer Engineering student building AI-assisted, cross-platform and embedded projects.">
 <meta property="og:title" content="Shannalei Ogriman | Computer Engineering Portfolio">
 <meta property="og:description" content="4th-year Computer Engineering student. Projects: Retrievo, DialyCare, GovAssist PH, CyberGuard.">
-<meta name="theme-color" content="#f7f8f5"><meta property="og:type" content="website"><meta property="og:url" content="https://shnnleiogrmn.github.io/"><meta property="og:image" content="https://shnnleiogrmn.github.io/Mypic.jpg"><meta property="og:image:alt" content="Shannalei Ogriman"><link rel="canonical" href="https://shnnleiogrmn.github.io/"><link rel="icon" href="icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#f7f7f7"><meta property="og:type" content="website"><meta property="og:url" content="https://shnnleiogrmn.github.io/"><meta property="og:image" content="https://shnnleiogrmn.github.io/Mypic.jpg"><meta property="og:image:alt" content="Shannalei Ogriman"><link rel="canonical" href="https://shnnleiogrmn.github.io/"><link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css"><noscript><style>@media(max-width:860px){.nav{position:relative}.nav .wrap{flex-wrap:wrap}.nav ul{position:static;display:flex;flex-wrap:wrap;width:100%;padding:0 0 12px}.menu,.theme{display:none}}</style></noscript>
+<script>try{const t=localStorage.getItem('portfolio-theme');document.documentElement.dataset.theme=t==='light'||t==='dark'?t:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}catch{document.documentElement.dataset.theme=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}</script><link rel="stylesheet" href="styles.css"><noscript><style>@media(max-width:860px){.nav{position:relative}.nav .wrap{flex-wrap:wrap}.nav ul{position:static;display:flex;flex-wrap:wrap;width:100%;padding:0 0 12px}.menu,.theme,.utility{display:none}}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -19,7 +19,7 @@
 <nav class="nav" aria-label="Main">
   <div class="wrap">
     <a class="brand" href="#top">Shannalei Ogriman</a>
-    <div class="nav-actions"><button class="theme" aria-label="Color theme: system" title="Change color theme">◐ <span>System</span></button><button class="menu" aria-expanded="false" aria-controls="links">Menu</button></div>
+    <div class="nav-actions"><button class="command-open utility" aria-label="Open command palette">⌘ K</button><button class="sound utility" aria-pressed="false" aria-label="Enable interface sounds">Sound off</button><button class="theme" aria-label="Color theme: system" title="Change color theme">◐ <span>System</span></button><button class="menu" aria-expanded="false" aria-controls="links">Menu</button></div>
     <ul id="links">
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
@@ -40,7 +40,7 @@
       <p class="lead">I learn by building — from Flutter applications to microcontroller-based systems. Turning practical problems into software and hardware projects.</p>
       <div class="btns">
         <a class="btn pri" href="#projects">View projects</a>
-        <a class="btn sec" href="https://github.com/Shnnleiogrmn" target="_blank" rel="noopener">GitHub ↗</a><a class="text-link" href="#contact">Get in touch ↗</a>
+        <a class="btn sec" href="https://github.com/Shnnleiogrmn" target="_blank" rel="noopener">GitHub ↗</a><a class="text-link" href="https://www.linkedin.com/in/shannalei-ogriman-2001523b6" target="_blank" rel="noopener">LinkedIn ↗</a><a class="text-link" href="#contact">Contact ↗</a>
       </div>
       <ul class="facts">
         <li>Open to internships / OJT</li>
@@ -56,7 +56,7 @@
     <p class="section-label">01 — SELECTED WORK</p><h2>Built to learn.<br>Designed to help.</h2>
     <p class="sub">Academic and personal projects. Status is stated on each one.</p>
 
-    <article class="feature">
+    <div class="spotlight" hidden role="region" aria-roledescription="carousel" aria-label="Featured projects"><div class="spotlight-heading"><p>PROJECT SPOTLIGHT</p><a href="#all-projects">All projects ↗</a></div><div class="project-stage" tabindex="0" aria-label="Featured projects. Use left and right arrow keys to browse."></div><div class="spotlight-controls"><button class="previous utility" aria-label="Previous featured project">←</button><div class="project-dots" role="group" aria-label="Choose featured project"></div><button class="next utility" aria-label="Next featured project">→</button></div><p class="spotlight-status" role="status" aria-live="polite"></p></div><div id="all-projects" class="collection-heading"><h3>All projects</h3><span>ACADEMIC / PERSONAL / CONCEPTS</span></div><article class="feature" id="dialycare">
       <div class="project-meta"><span>FEATURED / 01</span><span>CAPSTONE PROJECT</span></div>
       <h3>DialyCare</h3>
       <p class="tag">Dialysis Scheduling &amp; Notification Application</p><p class="project-motto">Smarter Scheduling, Timely Care.</p>
@@ -104,7 +104,7 @@
 
       </article>
 
-      <article class="card">
+      <article class="card" id="govassist">
         <span class="status">Concept</span>
         <h3>GovAssist PH</h3>
         <p>An AI document assistant that explains government requirements and procedures in plain Filipino or English, with source citations.</p>
@@ -125,7 +125,7 @@
         <ul class="badges"><li>Python</li><li>Flask</li><li>SQLite</li><li>HTML / CSS</li><li>Bootstrap</li></ul>
       </article>
 
-      <article class="card">
+      <article class="card" id="irrigation">
         <span class="status">Hardware project</span>
         <h3>Automated Solar-Powered Subsurface Irrigation System</h3>
         <p>A microcontroller-based subsurface irrigation system for agriculture, powered by solar energy.</p>
@@ -243,8 +243,8 @@
 </section>
 </main>
 
-<footer><div class="wrap"><span>&copy; 2026 Shannalei Ogriman</span><span>Built with curiosity. <a href="#top">Back to top ↑</a></span></div></footer>
+<footer><div class="wrap"><span>&copy; 2026 Shannalei Ogriman</span><span>HTML / CSS / JavaScript. <button class="command-footer utility" aria-label="Open command palette">Commands ⌘ K</button> <a href="#top">Back to top ↑</a></span></div></footer>
 
-<script src="script.js" defer></script>
+<dialog class="command-dialog" aria-labelledby="command-title"><div class="command-header"><h2 id="command-title">Portfolio commands</h2><button class="command-close utility" aria-label="Close commands">Esc</button></div><label for="command-search" class="sr-only">Search portfolio commands</label><input id="command-search" type="search" placeholder="Search portfolio… or try /about" autocomplete="off"><div class="command-results"></div><p class="command-empty" hidden>No matching commands.</p><p class="command-hint">↑ ↓ to move · Enter to run · Esc to close</p></dialog><script src="script.js" defer></script>
 </body>
 </html>
